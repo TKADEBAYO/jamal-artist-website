@@ -1,0 +1,2171 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f1efe9;
+    color: #111;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: #111;
+    color: #fff;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    z-index: 1000;
+
+    color: white;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.header.scrolled {
+    background: rgba(241, 239, 233, 0.96);
+
+    color: #111;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.nav a {
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+}
+
+
+.nav a::after {
+    content: "";
+
+    display: block;
+
+    width: 0;
+    height: 1px;
+
+    margin-top: 4px;
+
+    background: currentColor;
+
+    transition: width 0.25s ease;
+}
+
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+.menu-toggle {
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    color: inherit;
+
+    cursor: pointer;
+}
+
+
+.menu-toggle span {
+    display: block;
+
+    width: 27px;
+    height: 1px;
+
+    margin: 7px;
+
+    background: currentColor;
+
+    transition: 0.3s ease;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+    min-height: 700px;
+    max-height: 1100px;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    background: #111;
+    color: white;
+}
+
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.hero-image img,
+.hero-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /*
+       Change this if his face is being cropped.
+
+       Examples:
+       center center
+       center 20%
+       center 30%
+       60% center
+    */
+
+    object-position: center 30%;
+
+    transform: scale(1.02);
+}
+
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 40%,
+            rgba(0, 0, 0, 0.12) 75%,
+            rgba(0, 0, 0, 0.05) 100%
+        );
+}
+
+
+.hero-content {
+    position: relative;
+
+    width: 90%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding-bottom: 10vh;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+    margin-bottom: 15px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.25em;
+}
+
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(5rem, 14vw, 13rem);
+    font-weight: 600;
+
+    line-height: 0.75;
+
+    letter-spacing: -0.08em;
+
+    margin-left: -8px;
+}
+
+
+.hero-description {
+    max-width: 470px;
+
+    margin-top: 40px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+
+    padding: 15px 24px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+
+.button-primary {
+    background: white;
+    color: black;
+}
+
+
+.button-primary:hover {
+    background: #d8d5cc;
+}
+
+
+.button-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+
+.button-secondary:hover {
+    background: white;
+
+    color: black;
+}
+
+
+.button-dark {
+    margin-top: 25px;
+
+    background: #111;
+
+    color: white;
+}
+
+
+.button-dark:hover {
+    background: #333;
+}
+
+
+.scroll-text {
+    position: absolute;
+
+    right: 5%;
+    bottom: 45px;
+
+    z-index: 2;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.18em;
+
+    transform: rotate(90deg);
+
+    transform-origin: right;
+}
+
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+.section {
+    position: relative;
+
+    padding: 140px 5%;
+}
+
+
+.section-number {
+    position: absolute;
+
+    top: 60px;
+    right: 5%;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+
+.section-label {
+    margin-bottom: 25px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.section-header {
+    max-width: 1450px;
+
+    margin: 0 auto 70px;
+}
+
+
+.section-header h2,
+.about h2,
+.contact h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(3.5rem, 8vw, 8rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.065em;
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about-grid {
+    width: 100%;
+    max-width: 1450px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, 0.8fr);
+
+    gap: clamp(50px, 8vw, 120px);
+
+    align-items: end;
+}
+
+
+.about-content {
+    max-width: 570px;
+}
+
+
+.about-content p {
+    margin-bottom: 20px;
+
+    color: #555;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+}
+
+
+.about-content .large-text {
+    margin-bottom: 30px;
+
+    color: #111;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 2rem;
+
+    line-height: 1.25;
+}
+
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid #111;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   LARGE FEATURED IMAGE
+======================================== */
+
+.full-image-section {
+    position: relative;
+
+    width: 100%;
+
+    height: min(85vh, 900px);
+    min-height: 600px;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+
+.full-image-section img,
+.featured-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /*
+       Adjust only this value if the
+       important part of IMG_3900 is cropped.
+    */
+
+    object-position: center 35%;
+}
+
+
+.featured-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.42),
+            transparent 35%
+        );
+}
+
+
+.image-caption {
+    position: absolute;
+
+    bottom: 30px;
+    left: 5%;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+}
+
+
+/* ========================================
+   MUSIC
+======================================== */
+
+.music {
+    background: #d8d4ca;
+}
+
+
+.music-grid {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: clamp(50px, 7vw, 100px);
+
+    align-items: center;
+}
+
+
+.music-image {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #bbb;
+}
+
+
+.music-image img,
+.music-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center 25%;
+}
+
+
+.music-content {
+    width: 100%;
+    max-width: 550px;
+}
+
+
+.small-label {
+    margin-bottom: 15px;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.music-content h3 {
+    margin-bottom: 20px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+
+.music-content > p {
+    line-height: 1.7;
+
+    color: #555;
+}
+
+
+.soundcloud-player {
+    width: 100%;
+
+    margin-top: 35px;
+
+    overflow: hidden;
+
+    border-radius: 2px;
+}
+
+
+.soundcloud-player iframe {
+    display: block;
+
+    width: 100%;
+
+    border: 0;
+}
+
+
+/* ========================================
+   STATEMENT
+======================================== */
+
+.statement {
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 100px 8%;
+
+    background: #111;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+.statement p {
+    max-width: 1200px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(3rem, 8vw, 8rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+
+/* ========================================
+   VISUAL GALLERY
+======================================== */
+
+.gallery {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 0.8fr)
+        minmax(0, 0.8fr);
+
+    grid-template-rows: 650px;
+
+    gap: 15px;
+}
+
+
+.gallery-item {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+
+.gallery-item img,
+.gallery-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+
+/*
+   INDIVIDUAL IMAGE POSITIONING
+
+   This is important.
+
+   If someone's head is getting cut off,
+   adjust the percentage here rather than
+   changing the whole gallery.
+*/
+
+.gallery-photo-one {
+    object-position: center 25%;
+}
+
+
+.gallery-photo-two {
+    object-position: center 25%;
+}
+
+
+.gallery-photo-three {
+    object-position: center 25%;
+}
+
+
+.gallery-item:hover img {
+    transform: scale(1.035);
+}
+
+
+/* ========================================
+   VIDEO LINKS
+======================================== */
+
+.video-section {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 150px auto 0;
+}
+
+
+.video-heading {
+    margin-bottom: 50px;
+}
+
+
+.video-heading h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    letter-spacing: -0.055em;
+}
+
+
+.video-card {
+    display: grid;
+
+    grid-template-columns:
+        70px
+        minmax(0, 1fr)
+        50px;
+
+    align-items: center;
+
+    padding: 30px 0;
+
+    border-top: 1px solid #aaa;
+
+    transition:
+        padding 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.video-card:last-child {
+    border-bottom: 1px solid #aaa;
+}
+
+
+.video-card:hover {
+    padding-left: 15px;
+}
+
+
+.video-number {
+    font-size: 0.65rem;
+
+    color: #777;
+}
+
+
+.video-card p {
+    margin-bottom: 5px;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.18em;
+
+    color: #777;
+}
+
+
+.video-card h4 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.6rem;
+
+    font-weight: 500;
+}
+
+
+.arrow {
+    justify-self: end;
+
+    font-size: 1.5rem;
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact {
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    background: #c9ff34;
+}
+
+
+.contact-inner {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+.contact-inner > p:not(.section-label) {
+    max-width: 450px;
+
+    margin-top: 35px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+}
+
+
+.contact-email {
+    display: inline-block;
+
+    max-width: 100%;
+
+    margin-top: 40px;
+
+    padding-bottom: 5px;
+
+    border-bottom: 2px solid #111;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(1.4rem, 3vw, 2.7rem);
+
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    width: 100%;
+
+    padding: 70px 5% 35px;
+
+    background: #111;
+    color: white;
+}
+
+
+/* ========================================
+   FOOTER TOP
+======================================== */
+
+.footer-top {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding-bottom: 65px;
+}
+
+
+.footer-logo {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    font-weight: 600;
+
+    line-height: 0.85;
+
+    letter-spacing: -0.07em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.footer-logo:hover {
+    opacity: 0.7;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.footer-socials {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.social-link {
+    min-width: 190px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 100px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.social-link:hover {
+    background: white;
+
+    color: #111;
+
+    border-color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   SOCIAL ICON
+======================================== */
+
+.social-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.social-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ========================================
+   SOCIAL TEXT
+======================================== */
+
+.social-name {
+    flex: 1;
+}
+
+
+.social-arrow {
+    margin-left: 8px;
+
+    font-size: 1rem;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.social-link:hover .social-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.footer-bottom {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+.footer-copyright {
+    font-size: 0.6rem;
+
+    color: #888;
+
+    letter-spacing: 0.1em;
+}
+
+
+.back-to-top {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 0.65rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+.back-to-top span {
+    font-size: 1rem;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.back-to-top:hover {
+    opacity: 0.65;
+}
+
+
+.back-to-top:hover span {
+    transform: translateY(-4px);
+}
+
+
+/* ========================================
+   SCROLL ANIMATIONS
+======================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows:
+            650px
+            500px;
+    }
+
+
+    .gallery-large {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .nav {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+        justify-content: center;
+
+        padding: 10%;
+
+        gap: 25px;
+
+        background: #111;
+
+        color: white;
+
+        transform: translateX(100%);
+
+        transition: transform 0.35s ease;
+    }
+
+
+    .nav.open {
+        transform: translateX(0);
+    }
+
+
+    .nav a {
+        font-family: "Space Grotesk", sans-serif;
+
+        font-size: clamp(2.5rem, 8vw, 4rem);
+
+        text-transform: none;
+
+        letter-spacing: -0.05em;
+    }
+
+
+    .menu-toggle {
+        position: relative;
+
+        display: block;
+
+        z-index: 1001;
+    }
+
+
+    .about-grid,
+    .music-grid {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+
+    .music-image {
+        max-width: 650px;
+    }
+
+
+    .music-content {
+        max-width: 650px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        height: 70px;
+
+        padding: 0 22px;
+    }
+
+
+    .hero {
+        height: 100svh;
+
+        min-height: 650px;
+    }
+
+
+    .hero-image img,
+    .hero-photo {
+        /*
+           Portrait photos normally need
+           slightly different framing on phones.
+        */
+
+        object-position: center 25%;
+    }
+
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.82) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.12) 100%
+            );
+    }
+
+
+    .hero-content {
+        width: auto;
+
+        margin: 0 22px;
+
+        padding-bottom: 65px;
+    }
+
+
+    .eyebrow {
+        font-size: 0.62rem;
+
+        letter-spacing: 0.18em;
+    }
+
+
+    .hero h1 {
+        font-size: 21vw;
+
+        margin-left: -4px;
+    }
+
+
+    .hero-description {
+        max-width: 340px;
+
+        margin-top: 28px;
+
+        font-size: 0.95rem;
+    }
+
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        max-width: 260px;
+    }
+
+
+    .button {
+        width: 100%;
+    }
+
+
+    .scroll-text {
+        display: none;
+    }
+
+
+    .section {
+        padding:
+            110px 22px;
+    }
+
+
+    .section-number {
+        top: 40px;
+
+        right: 22px;
+    }
+
+
+    .about-grid {
+        gap: 50px;
+    }
+
+
+    .about-content .large-text {
+        font-size: 1.6rem;
+    }
+
+
+    /* FEATURE IMAGE */
+
+    .full-image-section {
+        height: 75vh;
+
+        min-height: 520px;
+    }
+
+
+    .full-image-section img,
+    .featured-photo {
+        object-position: center 30%;
+    }
+
+
+    /* MUSIC */
+
+    .music-grid {
+        gap: 45px;
+    }
+
+
+    .music-image {
+        width: 100%;
+
+        aspect-ratio: 4 / 5;
+    }
+
+
+    .soundcloud-player iframe {
+        height: 260px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows: none;
+
+        gap: 12px;
+    }
+
+
+    .gallery-large {
+        grid-column: auto;
+    }
+
+
+    .gallery-item {
+        height: auto;
+
+        aspect-ratio: 4 / 5;
+    }
+
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+
+        min-height: 0;
+    }
+
+
+    .gallery-photo-one,
+    .gallery-photo-two,
+    .gallery-photo-three {
+        object-position: center 25%;
+    }
+
+
+    /* VIDEOS */
+
+    .video-section {
+        margin-top: 100px;
+    }
+
+
+    .video-card {
+        grid-template-columns:
+            42px
+            minmax(0, 1fr)
+            25px;
+
+        padding: 25px 0;
+    }
+
+
+    .video-card h4 {
+        font-size: 1.2rem;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: 700px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+
+    .footer-socials {
+        flex-wrap: wrap;
+    }
+
+
+    .footer p {
+        margin-top: 15px;
+    }
+
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 20vw;
+    }
+
+
+    .section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    .video-card h4 {
+        font-size: 1rem;
+    }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+
+
+/* =====================================================
+   ENHANCED JAVASCRIPT INTERACTIONS
+===================================================== */
+
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+body {
+    opacity: 1;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADER MOVEMENT
+===================================================== */
+
+.header {
+    transform: translateY(0);
+
+    transition:
+        transform 0.35s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.header.header-hidden {
+    transform: translateY(-105%);
+}
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
+
+.nav a {
+    position: relative;
+}
+
+.nav a.active-link::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   MOBILE MENU ICON ANIMATION
+===================================================== */
+
+.menu-toggle {
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle span {
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* Turn hamburger into X */
+
+.menu-toggle.active span:first-child {
+    transform:
+        translateY(4px)
+        rotate(45deg);
+}
+
+.menu-toggle.active span:last-child {
+    transform:
+        translateY(-4px)
+        rotate(-45deg);
+}
+
+
+/* Keep X white when menu is open */
+
+.menu-toggle.active {
+    color: white;
+}
+
+
+/* =====================================================
+   BETTER MOBILE NAVIGATION ENTRANCE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .nav a {
+        opacity: 0;
+
+        transform: translateX(40px);
+
+        transition:
+            opacity 0.4s ease,
+            transform 0.4s ease;
+    }
+
+
+    .nav.open a {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+
+    .nav.open a:nth-child(1) {
+        transition-delay: 0.08s;
+    }
+
+    .nav.open a:nth-child(2) {
+        transition-delay: 0.13s;
+    }
+
+    .nav.open a:nth-child(3) {
+        transition-delay: 0.18s;
+    }
+
+    .nav.open a:nth-child(4) {
+        transition-delay: 0.23s;
+    }
+
+    .nav.open a:nth-child(5) {
+        transition-delay: 0.28s;
+    }
+
+}
+
+
+/* =====================================================
+   HERO ENTRANCE
+===================================================== */
+
+.eyebrow,
+.hero h1,
+.hero-description,
+.hero-buttons {
+    opacity: 0;
+
+    transform: translateY(30px);
+}
+
+
+.page-loaded .eyebrow {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.7s ease 0.15s,
+        transform 0.7s ease 0.15s;
+}
+
+
+.page-loaded .hero h1 {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.9s ease 0.25s,
+        transform 0.9s
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            )
+            0.25s;
+}
+
+
+.page-loaded .hero-description {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease 0.45s,
+        transform 0.8s ease 0.45s;
+}
+
+
+.page-loaded .hero-buttons {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease 0.6s,
+        transform 0.8s ease 0.6s;
+}
+
+
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.scroll-text {
+    transition:
+        opacity 0.2s linear,
+        color 0.3s ease;
+}
+
+
+/* =====================================================
+   BETTER REVEAL EFFECT
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translate3d(
+            0,
+            55px,
+            0
+        );
+
+    transition:
+        opacity 0.9s ease var(--delay, 0ms),
+        transform 0.9s
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            )
+            var(--delay, 0ms);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+}
+
+
+/* =====================================================
+   IMAGE LOADING
+===================================================== */
+
+img.image-loading {
+    opacity: 0;
+}
+
+
+img.image-loaded {
+    opacity: 1;
+
+    transition:
+        opacity 0.6s ease;
+}
+
+
+/* =====================================================
+   FEATURED IMAGE
+===================================================== */
+
+.full-image-section img {
+    transition:
+        transform 1.2s
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            );
+}
+
+
+.full-image-section:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-item {
+    isolation: isolate;
+}
+
+
+.gallery-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.15),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+
+.gallery-item img {
+    will-change: transform;
+}
+
+
+/* =====================================================
+   VIDEO CARDS
+===================================================== */
+
+.video-card {
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+.video-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background: #111;
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        var(--mouse-x, 50%)
+        center;
+
+    transition:
+        transform 0.45s
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            );
+}
+
+
+.video-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+
+.video-card:hover {
+    color: white;
+
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
+
+.video-card:hover p,
+.video-card:hover .video-number {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+}
+
+
+.video-card .arrow {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.video-card:hover .arrow {
+    transform:
+        translate(
+            4px,
+            -4px
+        );
+}
+
+
+/* =====================================================
+   BUTTON EFFECTS
+===================================================== */
+
+.button {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.button-primary,
+.button-dark,
+.button-secondary {
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.button:hover {
+    transform:
+        translateY(-3px);
+}
+
+
+.button-primary:hover {
+    box-shadow:
+        0 12px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+.button-dark:hover {
+    box-shadow:
+        0 12px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+/* =====================================================
+   TEXT LINK
+===================================================== */
+
+.text-link {
+    position: relative;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+.text-link:hover {
+    opacity: 0.55;
+}
+
+
+/* =====================================================
+   CONTACT LINK
+===================================================== */
+
+.contact-email {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.contact-email:hover {
+    opacity: 0.55;
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.footer-socials a {
+    position: relative;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+.footer-socials a:hover {
+    opacity: 0.55;
+}
+
+
+/* =====================================================
+   KEYBOARD ACCESSIBILITY
+===================================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline:
+        2px solid
+        currentColor;
+
+    outline-offset: 6px;
+}
+
+
+/* =====================================================
+   TOUCHSCREEN DEVICES
+===================================================== */
+
+@media (hover: none) {
+
+    .gallery-item:hover img,
+    .full-image-section:hover img {
+        transform: none;
+    }
+
+
+    .video-card:hover {
+        color: inherit;
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    .video-card:hover::before {
+        transform: scaleX(0);
+    }
+
+
+    .video-card:hover p,
+    .video-card:hover .video-number {
+        color: #777;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .eyebrow,
+    .hero h1,
+    .hero-description,
+    .hero-buttons,
+    .reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+
+    .header {
+        transform: none !important;
+    }
+
+
+    .nav a {
+        transition: none;
+    }
+
+
+    .gallery-item img,
+    .full-image-section img {
+        transform: none !important;
+    }
+
+}
+
+}
