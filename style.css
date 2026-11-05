@@ -669,6 +669,233 @@ button {
     border: 0;
 }
 
+/* ========================================
+   STREAMING PLATFORMS
+======================================== */
+
+.streaming-links {
+    width: 100%;
+
+    margin-top: 35px;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.25);
+}
+
+
+.streaming-link {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 18px 12px;
+
+    border-bottom: 1px solid rgba(17, 17, 17, 0.25);
+
+    overflow: hidden;
+
+    transition:
+        padding 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ========================================
+   BRAND / ICON AREA
+======================================== */
+
+.streaming-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+
+.streaming-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.streaming-icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.streaming-icon-youtube {
+    width: 30px;
+}
+
+
+.streaming-icon-soundcloud {
+    width: 32px;
+}
+
+
+/* ========================================
+   PLATFORM NAME
+======================================== */
+
+.streaming-platform {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* ========================================
+   LISTEN / WATCH
+======================================== */
+
+.streaming-action {
+    flex-shrink: 0;
+
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* ========================================
+   OFFICIAL / RECOGNISABLE BRAND COLOURS
+======================================== */
+
+
+/* SPOTIFY */
+
+.streaming-link-spotify .streaming-icon {
+    color: #1ED760;
+}
+
+
+.streaming-link-spotify:hover {
+    background: #1ED760;
+
+    color: #111;
+}
+
+
+/* APPLE MUSIC */
+
+.streaming-link-apple .streaming-icon {
+    color: #FA243C;
+}
+
+
+.streaming-link-apple:hover {
+    background: #FA243C;
+
+    color: white;
+}
+
+
+/* YOUTUBE */
+
+.streaming-link-youtube .streaming-icon {
+    color: #FF0000;
+}
+
+
+.streaming-link-youtube:hover {
+    background: #FF0000;
+
+    color: white;
+}
+
+
+/* SOUNDCLOUD */
+
+.streaming-link-soundcloud .streaming-icon {
+    color: #FF5500;
+}
+
+
+.streaming-link-soundcloud:hover {
+    background: #FF5500;
+
+    color: #111;
+}
+
+
+/* ========================================
+   STREAMING HOVER EFFECTS
+======================================== */
+
+.streaming-link:hover {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+
+.streaming-link:hover .streaming-icon {
+    transform: scale(1.08);
+}
+
+
+.streaming-link:hover .streaming-action {
+    transform: translate(3px, -3px);
+}
+
+/* ========================================
+   SOUNDCLOUD PLAYER AREA
+======================================== */
+
+.soundcloud-area {
+    margin-top: 45px;
+}
+
+
+.player-label {
+    margin-bottom: 12px;
+
+    font-size: 0.6rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    color: #555;
+}
+
+
+.soundcloud-player {
+    width: 100%;
+
+    margin-top: 0;
+
+    overflow: hidden;
+
+    border-radius: 2px;
+}
 
 /* ========================================
    STATEMENT
@@ -807,7 +1034,75 @@ button {
 
     letter-spacing: -0.055em;
 }
+/* ========================================
+   WATCH & DISCOVER INTRO
+======================================== */
 
+.video-intro {
+    max-width: 620px;
+
+    margin-top: 25px;
+
+    color: #666;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   FEATURED JAMAL VIDEO
+======================================== */
+
+.video-card-featured {
+    grid-template-columns:
+        70px
+        minmax(0, 1fr)
+        auto
+        50px;
+
+    background: #111;
+
+    color: white;
+
+    padding-left: 20px;
+    padding-right: 15px;
+
+    border-color: #111;
+}
+
+
+.video-card-featured .video-number,
+.video-card-featured p {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+.video-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 100px;
+
+    font-size: 0.55rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    color: white;
+}
+
+
+.video-card-featured:hover {
+    padding-left: 28px;
+}
 
 .video-card {
     display: grid;
@@ -1035,24 +1330,67 @@ button {
 
 
 /* ========================================
-   SOCIAL ICON
+   SOCIAL ICONS
 ======================================== */
 
 .social-icon {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     flex-shrink: 0;
+
+    color: white;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
 .social-icon svg {
+    display: block;
+
     width: 100%;
     height: 100%;
+
+    overflow: visible;
+}
+
+
+/* Spotify */
+
+.social-icon-spotify {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Apple Music */
+
+.social-icon-apple {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* YouTube is naturally wider */
+
+.social-icon-youtube {
+    width: 27px;
+    height: 24px;
+}
+
+
+/* Icon movement on hover */
+
+.social-link:hover .social-icon {
+    color: #111;
+
+    transform: scale(1.06);
 }
 
 
@@ -1411,7 +1749,59 @@ button {
     .soundcloud-player iframe {
         height: 260px;
     }
+/* STREAMING LINKS */
 
+.streaming-link {
+    padding:
+        17px
+        8px;
+
+    gap: 15px;
+}
+
+
+.streaming-brand {
+    gap: 11px;
+}
+
+
+.streaming-platform {
+    font-size: 1rem;
+}
+
+
+.streaming-icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+.streaming-icon-youtube {
+    width: 27px;
+}
+
+
+.streaming-icon-soundcloud {
+    width: 29px;
+}
+
+
+.streaming-action {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.1em;
+}
+
+
+/*
+   Don't use the full coloured hover
+   state on touch devices.
+*/
+
+.streaming-link:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
     /* GALLERY */
 
@@ -1453,26 +1843,66 @@ button {
     }
 
 
-    /* VIDEOS */
+    /* ========================================
+   VIDEOS
+======================================== */
 
-    .video-section {
-        margin-top: 100px;
-    }
-
-
-    .video-card {
-        grid-template-columns:
-            42px
-            minmax(0, 1fr)
-            25px;
-
-        padding: 25px 0;
-    }
+.video-section {
+    margin-top: 100px;
+}
 
 
-    .video-card h4 {
-        font-size: 1.2rem;
-    }
+/* Intro text */
+
+.video-intro {
+    max-width: 100%;
+
+    margin-top: 18px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+/* Normal video cards */
+
+.video-card {
+    grid-template-columns:
+        42px
+        minmax(0, 1fr)
+        25px;
+
+    padding: 25px 0;
+}
+
+
+.video-card h4 {
+    font-size: 1.2rem;
+}
+
+
+/* Featured Jamal video */
+
+.video-card-featured {
+    grid-template-columns:
+        42px
+        minmax(0, 1fr)
+        25px;
+
+    padding-left: 15px;
+    padding-right: 12px;
+}
+
+
+/*
+   Hide the LATEST badge on small screens
+   so the card does not become overcrowded.
+*/
+
+.video-card-featured .video-badge {
+    display: none;
+}
 
 
     /* CONTACT */
