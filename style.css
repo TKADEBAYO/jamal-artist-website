@@ -1445,6 +1445,74 @@ button {
     letter-spacing: 0.1em;
 }
 
+/* ========================================
+   POWERED BY TK TECH
+======================================== */
+
+.powered-by {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(35, 207, 211, 0.28);
+
+    border-radius: 100px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.powered-text {
+    font-size: 0.55rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    color: #777;
+}
+
+
+.powered-logo {
+    width: 28px;
+    height: 28px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+.powered-name {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    color: #23cfd3;
+}
+
+
+.powered-by:hover {
+    border-color: #23cfd3;
+
+    background: rgba(35, 207, 211, 0.08);
+
+    transform: translateY(-2px);
+}
+
+
+.powered-by:hover .powered-name {
+    color: #35f1f5;
+}
 
 .back-to-top {
     display: flex;
@@ -1912,27 +1980,63 @@ button {
     }
 
 
-    /* FOOTER */
+  /* FOOTER */
 
-    .footer {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 25px;
-    }
+.footer {
+    padding:
+        55px
+        22px
+        30px;
+}
 
 
-    .footer-socials {
-        flex-wrap: wrap;
-    }
+.footer-top {
+    flex-direction: column;
+
+    gap: 40px;
+
+    padding-bottom: 45px;
+}
 
 
-    .footer p {
-        margin-top: 15px;
-    }
+.footer-socials {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.social-link {
+    width: 100%;
+    min-width: 0;
+}
+
+
+.footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 22px;
+}
+
+
+.powered-by {
+    padding: 8px 12px;
+}
+
+
+.powered-logo {
+    width: 26px;
+    height: 26px;
+}
+
+
+.footer p {
+    margin-top: 0;
+}
 
 }
 
